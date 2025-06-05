@@ -1,39 +1,49 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 
-class Usuario(AbstractUser):
-    bio = models.TextField(blank=True, null=True)
+""""
+class Usuario(models.Model): 
+    nombre = models.CharField(max_length=100)
+    correo = models.EmailField(unique=True)
+    contraseña = models.CharField(max_length=128)
 
-class Reporte(models.Model):
-    ESTADOS = [
-        ('pendiente', 'Pendiente'),
-        ('aprobado', 'Aprobado'),
-        ('rechazado', 'Rechazado'),
-        ('resuelto', 'Resuelto'),
-    ]
-    titulo = models.CharField(max_length=255)
-    descripcion = models.TextField()
-    ubicacion = models.CharField(max_length=255)
-    estado = models.CharField(max_length=20, choices=ESTADOS, default='pendiente')
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.nombre
+"""
+class Seguidores(models.Model):
+    nombre_seguidores = models.CharField(max_length=100)
 
-class Propuesta(models.Model):
-    titulo = models.CharField(max_length=255)
-    descripcion = models.TextField()
-    categoria = models.CharField(max_length=100)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.nombre_seguidores
 
-class Comentario(models.Model):
+class SeguidoresUsuarios(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    seguidores = models.ForeignKey(Seguidores, on_delete=models.CASCADE)
+
+class Post(models.Model):
     contenido = models.TextField()
-    fecha = models.DateTimeField(auto_now_add=True)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    reporte = models.ForeignKey(Reporte, on_delete=models.CASCADE)
+    fecha_post = models.DateTimeField(auto_now_add=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class Comentarios(models.Model):
+    contenido = models.TextField()
+    fecha_comentario = models.DateTimeField(auto_now_add=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class Encuesta(models.Model):
+    pregunta = models.CharField(max_length=255)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class Opciones(models.Model):
+    nombre = models.CharField(max_length=100)
+
+class OpcionEncuesta(models.Model):
+    opcion = models.ForeignKey(Opciones, on_delete=models.CASCADE)
+    encuesta = models.ForeignKey(Encuesta, on_delete=models.CASCADE)
 
 class Voto(models.Model):
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    propuesta = models.ForeignKey(Propuesta, on_delete=models.CASCADE)
-
-class Seguidor(models.Model):
-    seguido = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='seguido')
-    seguidor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='seguidor')
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    opcion = models.ForeignKey(Opciones, on_delete=models.CASCADE)
+    encuesta = models.ForeignKey(Encuesta, on_delete=models.CASCADE)

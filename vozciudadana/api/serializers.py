@@ -1,32 +1,50 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Usuario, Reporte, Propuesta, Comentario, Voto, Seguidor
+from .models import *
 
-class UsuarioSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Usuario
+        model = User
+        fields = ['id', 'username', 'email']
+        
+class SeguidoresSerializer(serializers.ModelSerializer):
+    class Meta:
+     model = SeguidoresUsuarios
+     fields = '__all__'
+
+
+
+class SeguidoresUsuariosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SeguidoresUsuarios
         fields = '__all__'
 
-class ReporteSerializer(serializers.ModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Reporte
+        model = Post
         fields = '__all__'
 
-class PropuestaSerializer(serializers.ModelSerializer):
+class ComentariosSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Propuesta
+        model = Comentarios
         fields = '__all__'
 
-class ComentarioSerializer(serializers.ModelSerializer):
+class EncuestaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Comentario
+        model = Encuesta
+        fields = '__all__'
+
+class OpcionesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Opciones
+        fields = '__all__'
+
+class OpcionEncuestaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpcionEncuesta
         fields = '__all__'
 
 class VotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Voto
-        fields = '__all__'
-
-class SeguidorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Seguidor
         fields = '__all__'

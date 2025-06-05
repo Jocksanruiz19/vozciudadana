@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -143,4 +144,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-AUTH_USER_MODEL = 'api.Usuario'
+CORS_ALLOWED_ORIGINS=[
+    "http://localhost:5173"
+]
+
+
+
+
+
+
