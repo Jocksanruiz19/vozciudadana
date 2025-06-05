@@ -54,4 +54,4 @@ function Register() {
   )
 }
 
-export default RegisterUser
+export default Register

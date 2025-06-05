@@ -23,7 +23,7 @@ const Comentarios = ({ listaComentarios }) => {
     <div className={styles.contenedor}>
       <h2 className={styles.titulo}>Comentarios</h2>
       {listaComentarios.map((coment, index) => (
-        <Comentario
+        <Comentarioss
           key={index}
           nombre={coment.nombre}
           contenido={coment.contenido}

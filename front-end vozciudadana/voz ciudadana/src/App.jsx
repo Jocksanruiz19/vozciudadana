@@ -1,5 +1,5 @@
 function App() {
-  return <h1>¡Hola, Voz Ciudadana!</h1>
+  return <h1>¡Hola, Voz Ciudadanaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
 }
 
 export default App
