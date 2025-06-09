@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import UserLogin from '../services/UserLogin';
+import Loginn from '../services/UserLogin';
 
 function Loginn() {
     const [nombreUsuario, setNombreUsuario] = useState('');
@@ -11,7 +11,7 @@ function Loginn() {
 
     useEffect(() => {
         async function fetchDataUsers() {
-            const datos = await UserLogin.getUsers();
+            const datos = await Loginn.getUsers();
             setUsuarios(datos);
         }
         fetchDataUsers();

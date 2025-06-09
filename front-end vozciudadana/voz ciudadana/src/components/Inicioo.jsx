@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Publicacion from '../components/Publicacion/Publicacion';
-import './Home.css';
+import Publicacioness from '../components/Publicacioness';
+
 
 const Inicioo = () => {
   const [posts, setPosts] = useState([]);
@@ -36,7 +36,7 @@ const Inicioo = () => {
     <div className="home-container">
       <h1 className="titulo-home">Inicio</h1>
       {posts.map(post => (
-        <Publicacion key={post.id} post={post} />
+        <Publicacioness key={post.id} post={post} />
       ))}
     </div>
   );

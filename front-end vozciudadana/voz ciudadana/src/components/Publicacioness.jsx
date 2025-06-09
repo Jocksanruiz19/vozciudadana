@@ -1,5 +1,5 @@
 import React from 'react';
-import './Publicacion.css';
+import './Publicaciones.css';
 import { useNavigate } from 'react-router-dom';
 
 const Publicacioness = ({ post }) => {

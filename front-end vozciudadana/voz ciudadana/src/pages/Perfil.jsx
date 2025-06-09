@@ -1,5 +1,5 @@
 import React from 'react'
-import seguidores from '../components/Seguidoress'
+import Seguidoress from '../components/Seguidoress'
 import Opcioness from '../components/Opcioness'
 function Perfil() {
   return (

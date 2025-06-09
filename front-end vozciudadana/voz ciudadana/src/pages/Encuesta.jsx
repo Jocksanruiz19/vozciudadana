@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbarr from '../components/Navbarr'
-import encuesta from '../components/encuesta'
+import Encuestaa from '../components/Encuestaa'
 function Encuesta() {
   return (
     <div>
 
 
       <Navbarr/>  
-      <encuesta/>
+      <Encuestaa/>
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import encuesta from '../components/encuesta'
+import Opcioness from '../components/Opcioness'
 export default function Opciones() {
   return (
     <div>

@@ -1,14 +1,12 @@
 import React from 'react'
-import Navbarr from '../components/Navbarr'
-import comentarioss from '../components/comentarioss'
+import Comentariosss from '../components/Comentariosss'
 function Comentario() {
   return (
     <div>
 
 
-    <Navbarr/>
+     <Comentariosss />
 
-    <comentarioss/>
 
 
 

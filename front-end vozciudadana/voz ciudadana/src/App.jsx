@@ -1,5 +1,20 @@
+import Routing from "./router/Routing"
+
+
+
+
 function App() {
-  return <h1>¡Hola, Voz Ciudadanaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
+
+  return (
+    <>
+      <div>
+       <Routing/>
+       
+    
+      </div>
+      
+    </>
+  )
 }
 
 export default App
